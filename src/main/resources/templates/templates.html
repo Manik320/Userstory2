@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Website Templates</title>
+    <!-- Add your custom styles here -->
+    <style>
+        /* Your custom styles go here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4 text-center">Explore Website Templates</h1>
+        
+        <div class="row" id="template-container" th:each="template, index : ${templates}">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <!-- Display template image -->
+                    <img class="card-img-top" th:src="${template.image}" alt="Template" style="height: 200px;">
+                    <div class="card-body">
+                        <!-- Display template name dynamically and make it bold -->
+                        <h5 class="card-title">
+                            <strong th:text="${template.name}">Template</strong>
+                        </h5>
+                        <!-- Add any additional information about the template here -->
+                        <a th:href="${template.url}" class="btn btn-primary" th:onclick="'templateSelected(' + ${index.index} + ')'" >Select Template</a>
+                           <!-- Add a link to the feedback form -->
+         <!-- Add a link to the feedback form -->
+            
+             <h2>User Feedback</h2>
+        <p>Average Rating: <span th:text="${template.averageRating}"></span></p>
+        <p>Total Ratings: <span th:text="${template.totalRatings}"></span></p>
+
+        <!-- Display feedback comments -->
+        <h3>User Comments:</h3>
+        <ul>
+            <li th:each="feedback : ${template.feedbackList}">
+                <p>Rating: <span th:text="${feedback.rating}"></span></p>
+                <p>Comments: <span th:text="${feedback.comments}"></span></p>
+            </li>
+        </ul>
+
+        <!-- Provide a link to the feedback form -->
+      <a th:href="@{/templates/feedback/add/{templateId}(templateId=${template.id})}" class="btn btn-primary">Provide Feedback</a>
+</div>
+             </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        // Function to handle template selection
+        function templateSelected(index) {
+            alert('You selected template ' + (index + 1));
+            // Implement your logic for template selection (e.g., redirect to a new page)
+        }
+    </script>
+</body>
+</html>

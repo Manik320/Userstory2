@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Include necessary scripts and styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Provide Feedback for Template: <span th:text="${template.name}"></span></h1>
+        <form th:action="@{/templates/feedback/add/{templateId}(templateId=${template.id})}" th:object="${feedback}" method="post">
+            <!-- Rating field -->
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <input type="number" class="form-control" id="rating" name="rating" th:field="*{rating}" required min="1" max="5"/>
+            </div>
+            
+            <!-- Comments field -->
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea class="form-control" id="comments" name="comments" th:field="*{comments}" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+</html>

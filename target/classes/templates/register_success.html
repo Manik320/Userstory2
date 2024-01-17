@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Success</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background color */
+            color: #343a40; /* Dark text color */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h3 {
+            color: #28a745; /* Green heading color */
+        }
+
+        h4 {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007bff; /* Blue link color */
+        }
+
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h3>You have signed up successfully!</h3>
+        <h4><a th:href="@{/login}">Click here to Login</a></h4>
+    </div>
+</body>
+</html>

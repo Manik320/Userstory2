@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to CodeJava Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background color */
+            color: #343a40; /* Dark text color */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #007bff; /* Blue heading color */
+        }
+
+        .btn-custom {
+            color: #fff; /* White text color for buttons */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Blue background color for primary button */
+        }
+
+        .btn-success {
+            background-color: #28a745; /* Green background color for success button */
+        }
+
+        .btn-info {
+            background-color: #17a2b8; /* Turquoise background color for info button */
+        }
+    </style>
+</head>
+<body>
+<!-- Add this link to navigate to the templates page -->
+<a href="/templates" class="btn btn-primary">Explore Templates</a>
+
+    <div class="container text-center">
+        <h1>Welcome to CodeJava.net</h1>
+        <h3><a th:href="@{/users}" class="btn btn-primary btn-custom">List of Users</a></h3>
+        <h3><a th:href="@{/register}" class="btn btn-success btn-custom">Register</a></h3>
+        <h3><a th:href="@{/login}" class="btn btn-info btn-custom">Login</a></h3>
+    </div>
+</body>
+</html>
